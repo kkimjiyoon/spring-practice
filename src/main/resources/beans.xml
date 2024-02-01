@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <context:annotation-config/>
+    <context:property-placeholder location="classpath:sender.properties"/>
+    <aop:aspectj-autoproxy/>
+
+    <bean id="doorayHookSender"
+          class="com.nhn.dooray.client.DoorayHookSender">
+        <constructor-arg name="resttemplate" ref="restTemplate"/>
+        <constructor-arg name="url" value="${hookUrl}"/>
+    </bean>
+
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate"/>
+
+    <bean id="doorayMessageSender" class="com.nhnacademy.edu.springframework.sender.DoorayMessageSender"/>
+
+    <bean id="messageSendService" class="com.nhnacademy.edu.springframework.service.MessageSendService"/>
+
+    <bean id="executionLogger" class="com.nhnacademy.edu.springframework.logger.ExecutionTimeLogger"/>
+
+    <aop:config>
+        <aop:aspect ref="executionLogger">
+            <aop:pointcut id="executionTimePointCut" expression="@annotation(com.nhnacademy.edu.springframework.annotation.ExecutionTime)"/>
+            <aop:around method="printExecutionTime" pointcut-ref="executionTimePointCut"/>
+<!--            <aop:around method="printExecutionTime" pointcut="execution(* com.nhnacademy.edu.springframework.messagesender.sender.MessageSender.sendMessage(..))"></aop:around>-->
+        </aop:aspect>
+    </aop:config>
+
+</beans>

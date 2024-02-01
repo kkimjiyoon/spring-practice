@@ -1,4 +1,7 @@
 
-m
-java:S2737"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û
-E	java:S106"+Replace this use of System.out by a logger.(õĞ¢õüÿÿÿÿ
+M
+java:S1481"+Remove this unused "logger" local variable.(”áù«ıÿÿÿÿ8‰©ú’Ö1
+t
+java:S2737"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û8û³ä’Ö1
+X	java:S125"<This block of commented-out lines of code should be removed.(¥¯é8Èõî’Ö1
+L	java:S106"+Replace this use of System.out by a logger.(ùçõ¦øÿÿÿÿ8‚éù’Ö1

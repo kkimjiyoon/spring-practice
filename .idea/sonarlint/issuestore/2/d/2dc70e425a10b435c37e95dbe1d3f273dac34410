@@ -1,7 +1,10 @@
 
-M
-java:S1481"+Remove this unused "logger" local variable.(”áù«ýÿÿÿÿ8‰©ú’Ö1
+X	java:S125"<This block of commented-out lines of code should be removed.(™’Å„8Äéé—Ö1
 t
-java:S2737"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û8û³ä’Ö1
-X	java:S125"<This block of commented-out lines of code should be removed.(¥¯é8Èõî’Ö1
-L	java:S106"+Replace this use of System.out by a logger.(ùçõ¦øÿÿÿÿ8‚éù’Ö1
+java:S2737"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û8û³ä’Ö1
+X	java:S125"<This block of commented-out lines of code should be removed.(¥¯é8Èõî’Ö1
+L	java:S106!"+Replace this use of System.out by a logger.(ùçõ¦øÿÿÿÿ8Æé˜Ö1
+I
+java:S1128"-Remove this unused import 'org.slf4j.Logger'.(íØ®68Æéé—Ö1
+Q
+java:S1128"4Remove this unused import 'org.slf4j.LoggerFactory'.(–ÿÚÞ8Çéé—Ö1

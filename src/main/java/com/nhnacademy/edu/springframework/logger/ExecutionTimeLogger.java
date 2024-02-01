@@ -1,17 +1,20 @@
 package com.nhnacademy.edu.springframework.logger;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
-//@Aspect
-//@Component
+@Aspect
+@Component
 public class ExecutionTimeLogger {
 
-//    @Around("execution(* com.nhnacademy.edu.springframework.messagesender.sender.MessageSender.sendMessage(..))")
+    @Around("@annotation(com.nhnacademy.edu.springframework.annotation.ExecutionTime)")
     public Object printExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
-        Logger logger = LoggerFactory.getLogger(ExecutionTimeLogger.class);
+//        Logger logger = LoggerFactory.getLogger(ExecutionTimeLogger.class);
 
         StopWatch stopWatch = new StopWatch("ExecutionLogger");
         stopWatch.start();
